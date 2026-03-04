@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic -Wl,--dependency-file=CMakeFiles/megaphone.dir/link.d CMakeFiles/megaphone.dir/megaphone.o -o megaphone

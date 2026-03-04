@@ -1,3 +1,0 @@
-/home/jps/Documents/cpp_modules/00/ex00/build/CMakeFiles/megaphone.dir
-/home/jps/Documents/cpp_modules/00/ex00/build/CMakeFiles/edit_cache.dir
-/home/jps/Documents/cpp_modules/00/ex00/build/CMakeFiles/rebuild_cache.dir
