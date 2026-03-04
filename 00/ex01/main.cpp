@@ -1,13 +1,9 @@
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int	main()
 {
-	std::string	name = "Rafael Luis";
-	std::string	surname = "Yanase de Rezende";
+	PhoneBook pb;
 
-	Contact person1;
-
-	person1.setFirstName(name);
-	person1.setLastName(surname);
-	person1.displayFullName();
+	pb.addContact();
+	pb.displayFirstName();
 }

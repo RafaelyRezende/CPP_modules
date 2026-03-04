@@ -25,5 +25,9 @@ std::string	Contact::getPhoneNumber() {return phoneNumber;}
 std::string	Contact::getSecret() {return darkestSecret;}
 
 void		Contact::displayFullName() {
-	std::cout << Contact::getFirstName() << " " << Contact::getLastName() << std::endl;
+	if (this->firstName.size() != 0)
+		std::cout << this->firstName;
+	if (this->lastName.size() != 0)
+		std::cout << " " << this->lastName ;
+	std::cout << std::endl;
 }
