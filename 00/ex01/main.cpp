@@ -1,28 +1,13 @@
-#include "libphone.hpp"
-
-void	Contact::setFirstName(std::string str) {firstName = str;}
-
-void	Contact::setLastName(std::string str) {lastName = str;}
-
-void	Contact::setNickname(std::string str) {nickname = str;}
-
-void	Contact::setPhoneNumber(std::string str) {phoneNumber = str;}
-
-void	Contact::setSecret(std::string str) {darkestSecret = str;}
-
-std::string	Contact::getFirstName() {return firstName;}
-
-std::string	Contact::getLastName() {return lastName;}
-
-std::string	Contact::getNickname() {return nickname;}
-
-std::string	Contact::getPhoneNumber() {return phoneNumber;}
-
-std::string	Contact::getSecret() {return darkestSecret;}
+#include "Contact.hpp"
 
 int	main()
 {
-	PhoneBook pb;
-	pb.setFirstName("qualquermerda");
-	std::cout << pb.getFirstName() << std::endl;
+	std::string	name = "Rafael Luis";
+	std::string	surname = "Yanase de Rezende";
+
+	Contact person1;
+
+	person1.setFirstName(name);
+	person1.setLastName(surname);
+	person1.displayFullName();
 }
