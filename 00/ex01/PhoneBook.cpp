@@ -18,6 +18,6 @@ void	PhoneBook::addContact() {
 	this->i++;
 }
 
-void	PhoneBook::displayFirstName() {
-	this->list[this->i - 1].displayFullName();
+void	PhoneBook::searchContact() {
+	std::cout << "Select contact:" << std::endl;
 }

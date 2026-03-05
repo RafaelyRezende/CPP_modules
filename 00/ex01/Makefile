@@ -1,23 +1,20 @@
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
 NAME = phonebook
 
-SRCS = main.cpp \
-	   Contact.cpp \
-	   PhoneBook.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
-	make clean
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+%.o:%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

@@ -15,6 +15,5 @@ public:
 	~PhoneBook();
 	
 	void			addContact();
-	void			displayFirstName();
-
+	void			searchContact();
 };
