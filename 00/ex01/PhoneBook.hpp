@@ -16,4 +16,5 @@ public:
 	
 	void			addContact();
 	void			searchContact();
+	void			displayEntry(const char *c);
 };

@@ -1,6 +1,9 @@
 #pragma once
 
 # include <iostream>
+# include <iomanip>
+
+# define TRUNC 10
 
 class Contact
 {
@@ -13,19 +16,8 @@ private:
 
 public:
 	Contact();
+	Contact(std::string str[5]);
 	~Contact();
 
-	void		setFirstName(std::string str);
-	void		setLastName(std::string str);
-	void		setNickname(std::string str);
-	void		setPhoneNumber(std::string str);
-	void		setSecret(std::string str);
-
-	void		displayFullName();
-
-	std::string	getFirstName();
-	std::string	getLastName();
-	std::string	getNickname();
-	std::string	getPhoneNumber();
-	std::string	getSecret();
+	void		displayEntries(int idx, unsigned int flag);
 };

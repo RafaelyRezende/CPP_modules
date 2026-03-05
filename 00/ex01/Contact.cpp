@@ -2,32 +2,34 @@
 
 Contact::Contact() {}
 
+Contact::Contact(std::string str[5]) {
+	this->firstName = str[0];
+	this->lastName = str[1];
+	this->nickname = str[2];
+	this->phoneNumber = str[3];
+	this->darkestSecret = str[4];
+}
+
 Contact::~Contact() {}
 
-void		Contact::setFirstName(std::string str) {firstName = str;}
-
-void		Contact::setLastName(std::string str) {lastName = str;}
-
-void		Contact::setNickname(std::string str) {nickname = str;}
-
-void		Contact::setPhoneNumber(std::string str) {phoneNumber = str;}
-
-void		Contact::setSecret(std::string str) {darkestSecret = str;}
-
-std::string	Contact::getFirstName() {return firstName;}
-
-std::string	Contact::getLastName() {return lastName;}
-
-std::string	Contact::getNickname() {return nickname;}
-
-std::string	Contact::getPhoneNumber() {return phoneNumber;}
-
-std::string	Contact::getSecret() {return darkestSecret;}
-
-void		Contact::displayFullName() {
-	if (this->firstName.size() != 0)
-		std::cout << this->firstName;
-	if (this->lastName.size() != 0)
-		std::cout << " " << this->lastName ;
-	std::cout << std::endl;
+void	Contact::displayEntries(int idx, unsigned int flag) {
+	if (flag)
+	{
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << idx << "|" ;
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << this->firstName<< "|" ;
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << this->lastName << "|" ;
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << this->lastName << std::endl;
+	}
+	else
+	{
+		std::cout << "First name    : " << this->firstName << std::endl;
+		std::cout << "Last name     : " << this->lastName << std::endl;
+		std::cout << "Nickname      : " << this->nickname << std::endl;
+		std::cout << "Phone number  : " << this->phoneNumber << std::endl;
+		std::cout << "Darkest secret: " << this->darkestSecret << std::endl;
+	}
 }
