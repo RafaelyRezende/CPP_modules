@@ -17,12 +17,39 @@ void	Contact::displayEntries(int idx, unsigned int flag) {
 	{
 		std::cout << std::right << std::setfill(' ') << std::setw(10);
 		std::cout << idx << "|" ;
-		std::cout << std::right << std::setfill(' ') << std::setw(10);
-		std::cout << this->firstName<< "|" ;
-		std::cout << std::right << std::setfill(' ') << std::setw(10);
-		std::cout << this->lastName << "|" ;
-		std::cout << std::right << std::setfill(' ') << std::setw(10);
-		std::cout << this->lastName << std::endl;
+
+		if (this->firstName.size() >= 10)
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->firstName.substr(0, 9)+"." << "|" ;
+		}
+		else
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->firstName << "|" ;
+		}
+		if (this->lastName.size() >= 10)
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->lastName.substr(0, 9)+"." << "|" ;
+		}
+		else
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->lastName << "|" ;
+		}
+
+		if (this->nickname.size() >= 10)
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->nickname.substr(0, 9)+"." << "|" ;
+		}
+		else
+		{
+			std::cout << std::right << std::setfill(' ') << std::setw(10);
+			std::cout << this->nickname << "|" ;
+		}
+		std::cout << std::endl;
 	}
 	else
 	{
