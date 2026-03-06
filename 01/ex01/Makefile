@@ -2,9 +2,9 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
-NAME = phonebook
+NAME = zombie_horde
 
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
