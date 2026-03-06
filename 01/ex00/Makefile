@@ -1,10 +1,10 @@
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = phonebook
+NAME = zombie
 
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
