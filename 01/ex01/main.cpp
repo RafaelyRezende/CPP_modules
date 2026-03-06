@@ -2,5 +2,7 @@
 
 int	main(void)
 {
-	std::cout << "Hello" << std::endl;
+	Zombie	h;
+
+	h.zombieHorde(10, "baki");
 }
