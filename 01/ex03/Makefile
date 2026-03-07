@@ -2,9 +2,9 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
-NAME = phonebook
+NAME = weapons
 
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = Weapon.cpp HumanB.cpp HumanA.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
