@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
 NAME = minised
 
-SRCS = main.cpp
+SRCS = main.cpp MiniSed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
