@@ -1,4 +1,0 @@
-Hello world!
-This is a test file.
-Hello again, world!
-Say hello to everyone.

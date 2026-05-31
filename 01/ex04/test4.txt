@@ -1,4 +1,0 @@
-Line 1
-
-Line 3 with	tab
-Line 4 with special chars: !@#$%^&*()
