@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = OCF
+NAME = fixed
 
 SRCS = main.cpp Fixed.cpp
 
