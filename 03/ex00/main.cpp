@@ -1,5 +1,4 @@
-#include <iostream>
-#include "ClapTrap.h"
+#include "ClapTrap.hpp"
 
 int main(void) {
 	ClapTrap bob("Bob");
@@ -11,12 +10,12 @@ int main(void) {
 	jim.attack("Bob");
 	bob.takeDamage(0);
 	
-	bob.beRepaired(5);
-	jim.beRepaired(3);
+	bob.repair(5);
+	jim.repair(3);
 	
 	jim.takeDamage(15);
 	jim.attack("Bob");
-	jim.beRepaired(10);
+	jim.repair(10);
 	
 	ClapTrap copyBob(bob);
 	copyBob.attack("Jim");
