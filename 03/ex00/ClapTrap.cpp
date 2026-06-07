@@ -15,6 +15,15 @@ ClapTrap::ClapTrap(const std::string& name)
 	std::cout << "Parameter constructor call" << std::endl;
 }
 
+ClapTrap::ClapTrap(const std::string& name, int healthPoints, int energyPoints, int attackPoints)
+	: _name(name),
+	_healthPoints(healthPoints),
+	_energyPoints(energyPoints),
+	_attackPoints(attackPoints)
+{
+	std::cout << "Full constructor call" << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor call" << std::endl;
@@ -80,4 +89,14 @@ std::string	ClapTrap::getName() const
 int		ClapTrap::getHitPoints() const
 {
 	return _healthPoints;
+}
+
+int     ClapTrap::getEnergyPoints() const
+{
+    return _energyPoints;
+}
+
+int     ClapTrap::getAttackPoints() const
+{
+    return _attackPoints;
 }
