@@ -25,7 +25,6 @@ class ClapTrap
 
 		std::string	getName() const;
 		int		getHitPoints() const;
-		bool		isDead() const;
 
 };
 

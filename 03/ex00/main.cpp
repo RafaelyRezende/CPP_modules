@@ -1,6 +1,19 @@
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int main(void) {
+    //ClapTrap ghost;
+    ClapTrap clapOne("Jacob");
+
+    //std::cout << ghost.getName() << std::endl;
+    //std::cout << ghost.getHitPoints() << std::endl;
+
+    std::cout << clapOne.getName() << std::endl;
+    std::cout << clapOne.getHitPoints() << std::endl;
+
+    clapOne.attack("John");
+
+    /*
 	ClapTrap bob("Bob");
 	ClapTrap jim("Jim");
 	
@@ -22,6 +35,7 @@ int main(void) {
 	
 	ClapTrap assigned;
 	assigned = jim;
+    */
 	
 	return 0;
 }

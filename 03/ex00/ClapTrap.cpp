@@ -77,11 +77,7 @@ std::string	ClapTrap::getName() const
 	return _name;
 }
 
-int		getHitPoint() const
+int		ClapTrap::getHitPoints() const
 {
 	return _healthPoints;
 }
-
-bool		isDead() const
-{
-	if (_
