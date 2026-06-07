@@ -2,6 +2,10 @@
 #include <iostream>
 
 ClapTrap::ClapTrap()
+    : _name("None"),
+    _healthPoints(0),
+    _energyPoints(0),
+    _attackPoints(0)
 {
 	std::cout << "Default constructor call. ClapTrap alive!" << std::endl;
 }
@@ -61,7 +65,7 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	else
 	{
-		std::cout << "ClapTrap " << _name << " sleep." << std::endl;
+		std::cout << "ClapTrap " << _name << " dead or asleep." << std::endl;
 	}
 }
 
@@ -73,12 +77,18 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << _name << " took " << amount << " damage. HP: " << _healthPoints << std::endl;
 }
 
-void	ClapTrap::repair(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energyPoints > 0)
+	if (_healthPoints > 0 && _energyPoints > 0)
 	{
-		std::cout << "ClapTrap " << _name << " repaired" << amount << " points of damage." << std::endl;
+		std::cout << "ClapTrap " << _name << " repaired " << amount << " points of damage." << std::endl;
+        _healthPoints += amount;
+        _energyPoints--;
 	}
+    else
+    {
+        std::cout << "ClapTrap " << _name << " no helath or energy to be repaired" << std::endl;
+    }
 }
 
 std::string	ClapTrap::getName() const
