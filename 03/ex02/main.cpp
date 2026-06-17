@@ -1,26 +1,19 @@
 #include <iostream>
-#include "DiamondTrap.h"
+#include "ScavTrap.h"
 
 int main(void) {
     std::cout << "=== Construction ===" << std::endl;
-    DiamondTrap dt("GloriousLeader");
+    ScavTrap st("GloriousLeader");
 
     std::cout << "\n=== Actions ===" << std::endl;
-    dt.attack("Target");
-    dt.takeDamage(20);
-    dt.beRepaired(10);
-    dt.guardGate();
-    dt.highFivesGuys();
-    dt.whoAmI();
-
-    std::cout << "\n=== Copy ===" << std::endl;
-    DiamondTrap copyDt(dt);
-    copyDt.whoAmI();
+    st.attack("Target");
+    st.takeDamage(20);
+    st.beRepaired(10);
+    st.guardGate();
 
     std::cout << "\n=== Assignment ===" << std::endl;
-    DiamondTrap assigned;
-    assigned = dt;
-    assigned.whoAmI();
+    ScavTrap assigned;
+    assigned = st;
 
     std::cout << "\n=== Destruction ===" << std::endl;
     return 0;
