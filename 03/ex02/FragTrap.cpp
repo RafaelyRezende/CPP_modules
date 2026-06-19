@@ -25,18 +25,26 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 {
 	std::cout << "FragTrap " << _name << " copy assigment called." << std::endl;
 	if (this != &other)
-	{
-		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
-	}
+		ClapTrap::operator=(other);
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap " << _name << " destructor called." << std::endl;
+}
+
+void	FragTrap::attack(const std::string& target)
+{
+	if (_energyPoints > 0 && _hitPoints > 0)
+	{
+		std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		_energyPoints--;
+	}
+	else
+	{
+		std::cout << "FragTrap " << _name << " cannot attack, low energy!" << std::endl;
+	}
 }
 
 void	FragTrap::highFivesGuys(void)
