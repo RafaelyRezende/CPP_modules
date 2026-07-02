@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "ClapTrap.h"
 #include <iostream>
 
 static void printSeparator(const std::string& title)
@@ -11,7 +11,7 @@ static void printStatus(const ClapTrap& c)
     std::cout << "[Status] " << c.getName()
               << " | HP: " << c.getHitPoints()
               << " | Energy: " << c.getEnergyPoints()
-              << " | Attack: " << c.getAttackPoints() << std::endl;
+              << " | Attack: " << c.getAttackDamage() << std::endl;
 }
 
 int main(void)
