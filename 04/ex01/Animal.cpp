@@ -2,7 +2,7 @@
 #include <iostream>
 
 // Contructor
-Animal::Animal() : _type("")
+Animal::Animal() : _type("Animal")
 {
     std::cout << "Animal default constructor called" << std::endl;
 }

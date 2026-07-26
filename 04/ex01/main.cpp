@@ -140,10 +140,58 @@ int main()
     std::cout << "========================================" << std::endl;
     std::cout << "== BRAIN BEHAVIOUR                    ==" << std::endl;
     std::cout << "========================================" << std::endl;
+    std::cout << "Creating a Brain in inner scope ..." << std::endl;
+
     {
-        std::cout << "Creating a Brain in inner scope ..." << std::endl;
         Brain dumbrain;
-        std::cout << dumbrain.getIdea(9) << std::endl;
+        for (int idx = 0; idx < MAX_IDEAS; idx++)
+        {
+            std::cout << dumbrain.getIdea(idx) << std::endl;
+        }
+        // Test 1: Basic polymorphic creation and deletion
+        const Animal* j = new Dog();
+        const Animal* i = new Cat();
+    
+        std::cout << j->getType() << " " << std::endl;
+        std::cout << i->getType() << " " << std::endl;
+    
+        i->makeSound();  // Should print cat sound
+        j->makeSound();  // Should print dog sound
+    
+        delete j;  // Should call ~Dog() then ~Animal() — no leak!
+        delete i;  // Should call ~Cat() then ~Animal() — no leak!
+
+        // Test 2: Array of Animals (polymorphic array)
+        std::cout << "\n--- Array Test ---" << std::endl;
+        const int size = 4;
+        Animal* petCafe[size];
+
+        for (int k = 0; k < size; k++)
+        {
+            if (k % 2 == 0)
+                petCafe[k] = new Dog();
+            else
+                petCafe[k] = new Cat();
+        }
+
+        for (int k = 0; k < size; k++) {
+            petCafe[k]->makeSound();
+            delete petCafe[k];  // Virtual destructor ensures proper cleanup
+        }
+
+        // Test 3: Deep copy verification
+        std::cout << "\n--- Deep Copy Test ---" << std::endl;
+        Dog original;
+        original.getBrain()->setIdea(0, "I want a bone!");
+    
+        Dog copy = original;  // Copy constructor
+    
+        // Modify copy's brain only
+        copy.getBrain()->setIdea(0, "I want to chase cars!");
+    
+        // Original should be unchanged if deep copy worked
+        std::cout << "Original idea: " << original.getBrain()->getIdea(0) << std::endl;
+        std::cout << "Copy idea: " << copy.getBrain()->getIdea(0) << std::endl;
     }
 
     std::cout << std::endl;
