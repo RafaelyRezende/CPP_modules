@@ -1,21 +1,23 @@
+NAME	= intern
+
 CXX		= c++
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 
-SRCS	= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
+SRCS	= main.cpp Bureaucrat.cpp AForm.cpp Intern.cpp \
+		  ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS	= $(SRCS:.cpp=.o)
-
-NAME	= poly
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
+	rm -f *_shrubbery
 
 fclean: clean
 	rm -f $(NAME)

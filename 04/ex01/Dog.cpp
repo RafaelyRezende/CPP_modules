@@ -1,44 +1,40 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal(), _brain(new Brain())
 {
     _type = "Dog";
-    dogBrain = new Brain();
-    std::cout << "Dog spawned.\n";
+    std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::~Dog()
+Dog::Dog(const Dog& other) : Animal(other), _brain(new Brain(*other._brain))
 {
-    delete dogBrain;
-    std::cout << "Dog destructor called.\n";
+    std::cout << "Dog copy constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other)
+Dog& Dog::operator=(const Dog& other)
 {
-    std::cout << "Dog copy constructor called.\n";
-    dogBrain = new Brain(*other.dogBrain);
-    _type = other._type;
-}
-
-Dog&    Dog::operator=(const Dog &other)
-{
-    std::cout << "Dog copy assignment operator called.\n";
+    std::cout << "Dog copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        Animal::operator=(other); // Delegates copy assignment to base class. Modify the dog specific members below.
-        delete dogBrain;
-        dogBrain = new Brain(*other.dogBrain);
+        Animal::operator=(other);
+        *_brain = *other._brain;    // deep copy: reuse the existing Brain
     }
     return *this;
 }
 
-void    Dog::makeSound() const
+Dog::~Dog()
 {
-    std::cout << "Woof Woof\n";
+    delete _brain;
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "Woof!" << std::endl;
 }
 
 Brain* Dog::getBrain() const
 {
-    return dogBrain;
+    return _brain;
 }
