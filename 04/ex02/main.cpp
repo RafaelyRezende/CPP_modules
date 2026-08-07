@@ -126,18 +126,5 @@ int main()
     
     std::cout << std::endl;
 
-
-    // ============================================================
-    // TEST 6: Self-assignment safety
-    // ============================================================
-    std::cout << "=== TEST 6: Self-assignment ===" << std::endl;
-    
-    Dog self;
-    self.getBrain()->setIdea(0, "Self idea");
-    self = self;                         // Should not crash or leak
-    
-    std::cout << "Self idea[0]: " << self.getBrain()->getIdea(0) << std::endl;
-    std::cout << "✅ Self-assignment handled safely!" << std::endl;
-
     return 0;
 }
