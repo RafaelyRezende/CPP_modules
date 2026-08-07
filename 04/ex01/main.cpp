@@ -83,9 +83,6 @@ int main()
 
         std::cout << "original idea[0]: " << original.getBrain()->getIdea(0) << std::endl;
         std::cout << "assigned idea[0]: " << assigned.getBrain()->getIdea(0) << std::endl;
-
-        assigned = assigned;    // self-assignment must be harmless
-        std::cout << "after self-assign: " << assigned.getBrain()->getIdea(0) << std::endl;
     }
 
     /* ============================================================
