@@ -1,47 +1,40 @@
 #include "Cat.hpp"
-#include "Brain.hpp"
-#include <cstdlib>
 #include <iostream>
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal(), _brain(new Brain())
 {
     _type = "Cat";
-    catBrain = new Brain();
-    std::cout << "Cat constructor called.\n";
+    std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
 {
-    catBrain = new Brain(*other.catBrain);
-    _type = other._type;
-    std::cout << "Copy Cat.\n";
+    std::cout << "Cat copy constructor called" << std::endl;
 }
 
-Cat&    Cat::operator=(const Cat& other)
+Cat& Cat::operator=(const Cat& other)
 {
-    std::cout << "Copy Cat assignment.\n";
+    std::cout << "Cat copy assignment operator called" << std::endl;
     if (this != &other)
     {
         Animal::operator=(other);
-        delete catBrain;
-        catBrain = new Brain(*other.catBrain);
+        *_brain = *other._brain;    // deep copy: reuse the existing Brain
     }
     return *this;
 }
 
 Cat::~Cat()
 {
-    delete catBrain;
-    std::cout << "Cat destructor called.\n";
+    delete _brain;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
-void    Cat::makeSound() const
+void Cat::makeSound() const
 {
-    int rgn = std::rand() % MAX_IDEAS;
-    std::cout << "Miau " + catBrain->getIdea(rgn) + " !" << std::endl;
+    std::cout << "Meow!" << std::endl;
 }
 
 Brain* Cat::getBrain() const
 {
-    return catBrain;
+    return _brain;
 }

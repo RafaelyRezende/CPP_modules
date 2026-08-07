@@ -1,19 +1,18 @@
-CCXX=c++
+CXX		= c++
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 
-CXXFLAGS=-Wall -Wextra -Werror -std=c++98
+SRCS	= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
+OBJS	= $(SRCS:.cpp=.o)
 
-SRCS=Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
-OBJS=$(SRCS:.cpp=.o)
-
-NAME=poly
+NAME	= poly
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CCXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CCXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

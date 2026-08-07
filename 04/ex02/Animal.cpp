@@ -30,10 +30,9 @@ Animal::~Animal()
     std::cout << "Animal destructor called" << std::endl;
 }
 
-void    Animal::makeSound() const
-{
-    std::cout << "Some generic animal sound" << std::endl;
-}
+// NOTE: makeSound() is pure virtual (= 0 in Animal.hpp) and has no
+// definition here on purpose — Animal is abstract and cannot be
+// instantiated; concrete classes provide their own implementation.
 
 std::string Animal::getType() const
 {

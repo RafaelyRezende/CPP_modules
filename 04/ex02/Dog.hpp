@@ -7,11 +7,11 @@
 class Dog : public Animal
 {
     private:
-        Brain *dogBrain;
+        Brain* _brain;
 
     public:
         Dog();
-        Dog(const Dog &other);
+        Dog(const Dog& other);
         Dog& operator=(const Dog& other);
         ~Dog();
 
