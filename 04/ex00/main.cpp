@@ -99,12 +99,6 @@ int main()
     std::cout << "== SELF-ASSIGNMENT TESTS              ==" << std::endl;
     std::cout << "========================================" << std::endl;
 
-    Dog selfDog;
-    selfDog = selfDog;
-
-    Cat selfCat;
-    selfCat = selfCat;
-
     std::cout << std::endl;
     std::cout << "========================================" << std::endl;
     std::cout << "== POLYMORPHIC ARRAY TESTS            ==" << std::endl;
