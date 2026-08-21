@@ -1,11 +1,7 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"	// full definition needed here to call form.beSigned()
+#include "Form.hpp"
 
-/* ---------------- Orthodox Canonical Form ---------------- */
-
-Bureaucrat::Bureaucrat() : _name("Anonymous"), _grade(150)
-{
-}
+Bureaucrat::Bureaucrat() : _name("Anonymous"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	: _name(name), _grade(grade)
@@ -17,9 +13,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
-	: _name(other._name), _grade(other._grade)
-{
-}
+	: _name(other._name), _grade(other._grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
@@ -28,11 +22,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
-
-/* ---------------- Getters ---------------- */
+Bureaucrat::~Bureaucrat() {}
 
 const std::string& Bureaucrat::getName() const
 {
@@ -43,8 +33,6 @@ int Bureaucrat::getGrade() const
 {
 	return _grade;
 }
-
-/* ---------------- Grade modifiers ---------------- */
 
 void Bureaucrat::incrementGrade()
 {
@@ -60,10 +48,6 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-/* ---------------- signForm ----------------
-   The Bureaucrat attempts the signature and reports the result.
-   The actual permission check lives in Form::beSigned(). */
-
 void Bureaucrat::signForm(Form& form)
 {
 	try
@@ -78,8 +62,6 @@ void Bureaucrat::signForm(Form& form)
 	}
 }
 
-/* ---------------- Exceptions ---------------- */
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Bureaucrat: grade too high (maximum is grade 1)";
@@ -89,8 +71,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Bureaucrat: grade too low (minimum is grade 150)";
 }
-
-/* ---------------- operator<< ---------------- */
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {

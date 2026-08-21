@@ -3,7 +3,6 @@
 
 int main()
 {
-	/* --- Valid construction and operator<< --- */
 	std::cout << "=== Valid bureaucrats ===" << std::endl;
 	try
 	{
@@ -19,7 +18,6 @@ int main()
 		std::cout << "Unexpected exception: " << e.what() << std::endl;
 	}
 
-	/* --- Construction with grade too high --- */
 	std::cout << "\n=== Grade too high at construction ===" << std::endl;
 	try
 	{
@@ -31,7 +29,6 @@ int main()
 		std::cout << "Caught: " << e.what() << std::endl;
 	}
 
-	/* --- Construction with grade too low --- */
 	std::cout << "\n=== Grade too low at construction ===" << std::endl;
 	try
 	{
@@ -43,7 +40,6 @@ int main()
 		std::cout << "Caught: " << e.what() << std::endl;
 	}
 
-	/* --- Increment / decrement inside range --- */
 	std::cout << "\n=== Increment / decrement ===" << std::endl;
 	try
 	{
@@ -59,7 +55,6 @@ int main()
 		std::cout << "Caught: " << e.what() << std::endl;
 	}
 
-	/* --- Increment past the top --- */
 	std::cout << "\n=== Increment past grade 1 ===" << std::endl;
 	try
 	{
@@ -73,7 +68,6 @@ int main()
 		std::cout << "Caught: " << e.what() << std::endl;
 	}
 
-	/* --- Decrement past the bottom --- */
 	std::cout << "\n=== Decrement past grade 150 ===" << std::endl;
 	try
 	{
@@ -86,6 +80,5 @@ int main()
 	{
 		std::cout << "Caught: " << e.what() << std::endl;
 	}
-
 	return 0;
 }
