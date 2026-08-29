@@ -1,7 +1,11 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Anonymous"), _grade(150) {}
+/* ---------------- Orthodox Canonical Form ---------------- */
+
+Bureaucrat::Bureaucrat() : _name("Anonymous"), _grade(150)
+{
+}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	: _name(name), _grade(grade)
@@ -13,7 +17,9 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
-	: _name(other._name), _grade(other._grade) {}
+	: _name(other._name), _grade(other._grade)
+{
+}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
@@ -22,7 +28,11 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat()
+{
+}
+
+/* ---------------- Getters ---------------- */
 
 const std::string& Bureaucrat::getName() const
 {
@@ -33,6 +43,8 @@ int Bureaucrat::getGrade() const
 {
 	return _grade;
 }
+
+/* ---------------- Grade modifiers ---------------- */
 
 void Bureaucrat::incrementGrade()
 {
@@ -48,7 +60,9 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form& form)
+/* ---------------- Form interactions ---------------- */
+
+void Bureaucrat::signForm(AForm& form)
 {
 	try
 	{
@@ -62,6 +76,22 @@ void Bureaucrat::signForm(Form& form)
 	}
 }
 
+void Bureaucrat::executeForm(const AForm& form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName()
+				  << " because " << e.what() << std::endl;
+	}
+}
+
+/* ---------------- Exceptions ---------------- */
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Bureaucrat: grade too high (maximum is grade 1)";
@@ -71,6 +101,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Bureaucrat: grade too low (minimum is grade 150)";
 }
+
+/* ---------------- operator<< ---------------- */
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
